@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -34,5 +35,16 @@ public class SerieService {
 
     public List<SerieDTO> obterLancamentos(){
         return converteDados(repositorio.encontrarEpisodiosMaisRecentes());
+    }
+
+    public SerieDTO obterDetalhes(Long id) {
+        Optional<Serie> detalhesSerie =  repositorio.findById(id);
+
+        if(detalhesSerie.isPresent()){
+            Serie s = detalhesSerie.get();
+            return new SerieDTO(s.getId(), s.getTitulo(), s.getTotalTemporadas(),
+                    s.getAvaliacao(), s.getGenero(), s.getAtores(), s.getPoster(), s.getSinopse());
+        }
+        return null;
     }
 }
