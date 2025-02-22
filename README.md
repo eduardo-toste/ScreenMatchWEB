@@ -2,6 +2,8 @@
 
 Este repositório contém a versão fullstack do projeto **Screenmatch**, onde a aplicação foi transformada em uma API que disponibiliza os dados do banco para o frontend.
 
+## Interface
+
 ![image](https://github.com/user-attachments/assets/4793371f-1091-497e-8826-7221d599031d)
 
 ## Tecnologias Utilizadas
